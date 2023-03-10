@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsNotEmpty, IsString, IsStrongPassword, MinLength } from "class-validator";
+import { IsEmail, IsNotEmpty, IsString, IsStrongPassword, MinLength, IsBoolean } from "class-validator";
 
 export class CreateUserDto {
     @ApiProperty({example: "user1", description: "Foydalanuvchi ismi"})
@@ -19,6 +19,11 @@ export class CreateUserDto {
     @ApiProperty({example: "+998991234567", description: "Foydalanuvchi telefon raqami"})
     @IsString()
     readonly phone_number: string;
+
+
+    @ApiProperty({example: "admin", description: "Foydalanuvchi statusi"})
+    @IsBoolean()
+    readonly isAdmin: boolean;
 
 
     @ApiProperty({example: `{lat: "11.11112", lon: "63.12345"}`, description: "Foydalanuvchi locatsiyasi"})

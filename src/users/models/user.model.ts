@@ -60,10 +60,7 @@ export class User extends Model<User, UserCreationAttr> {
         defaultValue: false,
     })
     isAdmin: boolean;
-
-    // @BelongsToMany(()=> Equipment, ()=> UserEquipment)
-    // equipment: Equipment[];
-
+    
     @HasMany(()=> UserEquipment)
     buyers: UserEquipment[];
 

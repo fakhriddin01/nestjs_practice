@@ -19,8 +19,9 @@ export class UsersService {
     return users;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async getUserByEmail(email: string) {
+    const user = await this.userRepo.findOne({where: {email},include: {all: true}})
+    return user;
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {

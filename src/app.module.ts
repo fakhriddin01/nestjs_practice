@@ -4,6 +4,10 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { UsersModule } from './users/users.module';
 import { EquipmentModule } from './equipment/equipment.module';
 import { UserEquipmentModule } from './user_equipment/user_equipment.module';
+import { AuthModule } from './auth/auth.module';
+import { User } from './users/models/user.model';
+import { Equipment } from './equipment/models/equipment.model';
+import { UserEquipment } from './user_equipment/models/user-equipment.model';
 
 
 @Module({
@@ -18,13 +22,14 @@ SequelizeModule.forRoot({
     username: process.env.POSTGRES_USER,
     password: String(process.env.POSTGRES_PASSWORD),
     database: process.env.POSTGRES_DB,
-    models:[],
+    models:[User, Equipment, UserEquipment],
     autoLoadModels: true,
     logging: true,
 }),
 UsersModule,
 EquipmentModule,
-UserEquipmentModule
+UserEquipmentModule,
+AuthModule
 ],
   controllers: [],
   providers: [],

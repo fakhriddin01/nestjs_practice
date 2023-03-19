@@ -63,6 +63,6 @@ export class User extends Model<User, UserCreationAttr> {
     
     @HasMany(()=> UserEquipment)
     buyers: UserEquipment[];
-
+    
 }
 

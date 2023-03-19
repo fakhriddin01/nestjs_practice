@@ -14,7 +14,7 @@ export class UserEquipmentController {
   constructor(private readonly userEquipmentService: UserEquipmentService) {}
 
   @ApiOperation({summary: "Order yaratish"})
-  @Roles("ADMIN")
+  // @Roles("ADMIN")
   @UseGuards(RolesGuard)
   @Post()
   create(@Body() createUserEquipmentDto: CreateUserEquipmentDto) {
